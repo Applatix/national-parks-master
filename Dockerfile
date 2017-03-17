@@ -5,5 +5,9 @@ From tomcat:8-jre8
 MAINTAINER "dinar dalvi <dinar@applatix.com">
 
 EXPOSE 80
+
+USER root
 # Copy to images tomcat path
-ADD target/national-parks.war /usr/local/tomcat/webapps/
+RUN rm -rf /usr/local/tomcat/webapps/ROOT/
+ADD target/national-parks.war /usr/local/tomcat/webapps/ROOT.war
+
